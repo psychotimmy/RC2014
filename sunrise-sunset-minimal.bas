@@ -5,7 +5,7 @@
 50 L5=L5/360: Z0=H/24
 60 GOSUB 1170: T=(J-2451545)+F
 70 TT=T/36525+1:
-80 REM TT = centuries from 1900               from 1900.0
+80 REM TT = centuries from 1900.0
 90 GOSUB 410: T=T+Z0
 100 REM
 110 REM       Get Sun's Position

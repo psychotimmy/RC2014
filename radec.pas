@@ -1,26 +1,21 @@
 program radec(input,output);
-type PN = (Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto);
-type PlanetaryData = array [Mercury..Pluto, 1..9] of real;
-type str9 = string[9];
-type str3 = string[3];
-var pData: PlanetaryData;
-var planet: PN;
-var year: integer;
-var month: integer;
-var day: integer;
-var epoch: integer;
-var helioLong: real;
-var helioLongE: real;
-var sunDistance: real;
-var sunDistanceE: real;
-var eclipDist: real;
-var earthDistance: real;
-var rightAscension: real;
-var declination: real;
-var monthstr: str3;
-var getData: char;
+type  PN = (Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto);
+      PlanetaryData = array [Mercury..Pluto, 1..9] of real;
+      str9 = string[9];
+      str3 = string[3];
+var   pData: PlanetaryData;
+      planet: PN;
+      year, month, day, epoch: integer;
+      helioLong, helioLongE: real;
+      sunDistance, sunDistanceE: real;
+      eclipDist: real;
+      earthDistance: real;
+      rightAscension: real;
+      declination: real;
+      monthstr: str3;
+      getData: char;
 const pi = 3.14159;
-const dayhours = 24.0;
+      dayhours = 24.0;
 
 procedure InitPlanetData;
 begin
@@ -150,6 +145,24 @@ begin
   end;
 end;
 
+procedure GetNumI(var WholeNumber: integer; var CharFlag: char;
+                  var Code: integer);
+const PromptString ='? ';
+var   Entry: string[30];
+begin
+  write(PromptString);
+  readln(Entry);
+  val(Entry,WholeNumber,Code);
+  case length(Entry) of
+    0: Code := -2;
+    1: if Code > 0 then
+         begin
+           Code := -1;
+           CharFlag := Entry
+         end
+  end
+end;
+
 function arcsin(x: real): real;
 begin
   arcsin := arctan(x/sqrt(-x*x+1.0))
@@ -171,32 +184,46 @@ begin
 end;
 
 function getYear: integer;
-var i: integer;
+var i, status: integer;
+    cf: char;
 begin
   i := 0;
   while (i < 1901)or(i > 2048)
   do begin
     writeln('Enter a year between 1901 and 2048');
-    readln(i)
+    repeat
+      GetNumI(i,cf,status);
+      case status of
+        -2: writeln('No year entered');
+        -1: writeln('Non-numeric ',cf,' entered')
+      end
+    until status=0
   end;
   getYear := i
 end;
 
 function getMonth: integer;
-var i: integer;
+var i, status: integer;
+    cf: char;
 begin
   i := 0;
   while (i < 1)or(i > 12)
   do begin
     writeln('Enter a month between 1 (January) and 12 (December)');
-    readln(i)
+    repeat
+      GetNumI(i,cf,status);
+      case status of
+        -2: writeln('No month entered');
+        -1: writeln('Non-numeric ',cf,' entered')
+      end
+    until status=0
   end;
   getMonth := i
 end;
 
 function getDay(m: integer; y: integer): integer;
-var i: integer;
-var j: integer;
+var i,j,status: integer;
+var cf: char;
 begin
   case m of
     1,3,5,7,8,10,12: j := 31;
@@ -208,7 +235,13 @@ begin
   while (i < 1)or(i > j)
   do begin
     writeln('Enter a day between 1 and ',j);
-    readln(i)
+    repeat
+      GetNumI(i,cf,status);
+      case status of
+        -2: writeln('No day entered');
+        -1: writeln('Non-numeric ',cf, ' entered')
+      end
+    until status=0
   end;
   getDay := i
 end;

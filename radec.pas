@@ -8,10 +8,7 @@ var   pData: PlanetaryData;
       year, month, day, epoch: integer;
       helioLong, helioLongE: real;
       sunDistance, sunDistanceE: real;
-      eclipDist: real;
-      earthDistance: real;
-      rightAscension: real;
-      declination: real;
+      eclipDist, earthDistance, rightAscension, declination: real;
       monthstr: str3;
       getData: char;
 const pi = 3.14159;
@@ -170,7 +167,7 @@ end;
 
 function arccos(x: real): real;
 begin
-  arccos := -arctan (x/sqrt(-x*x+1.0))+1.5707963
+  arccos := -arctan(x/sqrt(-x*x+1.0))+1.5707963
 end;
 
 function rad(x: real): real;
@@ -223,7 +220,7 @@ end;
 
 function getDay(m: integer; y: integer): integer;
 var i,j,status: integer;
-var cf: char;
+    cf: char;
 begin
   case m of
     1,3,5,7,8,10,12: j := 31;
@@ -279,10 +276,7 @@ begin
 end;
 
 function getRA(hl: real; hle: real; sd: real; sde: real; edst: real): real;
-var tempz: real;
-var tempp: real;
-var tempx: real;
-var ra: real;
+var tempz, tempp, tempx, ra: real;
 begin
   tempz := hle-hl;
   if (abs(tempz) > pi) and (tempz < 0.0) then tempz := tempz+2.0*pi;
@@ -303,10 +297,7 @@ end;
 
 function getDec(hl: real; hle: real; sd: real; sde: real;
                 edst: real; eclip: real): real;
-var tempz: real;
-var tempp: real;
-var tempx: real;
-var tempv: real;
+var tempz, tempp, tempx, tempv: real;
 begin
   tempz := hle-hl;
   if (abs(tempz) > pi) and (tempz < 0) then tempz := tempz+2*pi;

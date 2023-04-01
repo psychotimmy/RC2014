@@ -269,11 +269,6 @@ begin
   getHelioLong := t
 end;
 
-function getEclipticDist(p: PN; e: integer; hl:real): real;
-begin
-  getEclipticDist := pData[p,8]*sin(hl-pData[p,9]);
-end;
-
 function getEarthDist(hl: real; hle: real; sd: real; sde:real): real;
 var tempz: real;
 begin

@@ -1,0 +1,107 @@
+{ Conway's life, Turbo Pascal 3.01A, RC2014 }
+{ Tim Holyoake, 6th April 2023 }
+
+program life(output);
+const
+  COLUMNS   =    50; { Number of columns on board }
+  ROWS      =    20; { Number of rows on board }
+  MAXSTABLE =    10; { End game if cell count is same for MAXSTABLE generations }
+  RANDMAX   =     3; { For generating a random integer less than  RANDMAX }
+  EMPTY     = FALSE; { Empty cell is boolean value FALSE }
+  ALIVE     =  TRUE; { Alive cell is boolean value TRUE }
+type
+  Grid = array [1..ROWS, 1..COLUMNS] of boolean;
+var
+  Board: Grid;
+  generation, stable, livecells, livecellsnow: integer;
+
+function PopulateBoard: integer;
+{ Populates the board with a random initial state }
+var col, row, cells: integer;
+begin
+  cells := 0;
+  for row := 1 to ROWS do
+    for col := 1 to COLUMNS do
+      begin
+        Board[row,col] := EMPTY;
+        if (Random(RANDMAX) < 1) then
+        begin
+          Board[row,col] := ALIVE;
+          cells := cells + 1
+        end
+      end;
+  PopulateBoard := cells
+end;
+
+function NextGeneration: integer;
+{ Calculates the number of cells in the next generation }
+{ by creating a temporary grid based on Conway's rules  }
+{ for birth, death and survivorship                     }
+var row, col, x, y, cells, nextgen: integer;
+    cur: boolean;
+    NewBoard: Grid;
+begin
+  nextgen := 0;
+  for row := 1 to ROWS do
+    for col := 1 to COLUMNS do
+    begin
+      cur := Board[row,col];
+      NewBoard[row,col] := EMPTY;
+      cells := 0;
+      for x := row-1 to row+1 do
+        for y := col-1 to col+1 do
+          if ((y<>0) and (y<=COLUMNS) and (x<>0) and (x<=ROWS)) then
+            if (Board[x,y]=ALIVE) then cells := cells+1;
+      if (cur=ALIVE) then cells:=cells-1;
+      if ((cells=3) or ((cells=2) and (cur=ALIVE))) then
+      begin
+        NewBoard[row,col] := ALIVE;
+        nextgen := nextgen+1
+      end
+  end;
+
+  for row := 1 to ROWS do
+    for col := 1 to COLUMNS do
+      Board[row,col] := NewBoard[row,col];
+
+  NextGeneration := nextgen
+
+end;
+
+procedure DisplayBoard;
+{ Display the current board }
+var col, row: integer;
+begin
+  writeln(#27'[H'); { VTxxx home cursor }
+  for row := 1 to ROWS do
+  begin
+    for col := 1 to COLUMNS do
+      if (Board[row,col] = ALIVE) then
+        write('*')
+      else
+        write(' ');
+    writeln
+  end
+end;
+
+{ Main program }
+begin
+  write(#27'[2J'); { VTxxx clear screen }
+  generation := 1;
+  stable := 1;
+  livecells := PopulateBoard;
+  while (stable <= MAXSTABLE) do
+  begin
+    DisplayBoard;
+    writeln;
+    writeln('Generation: ',generation,' Cells: ',livecells,
+            ' Stability: ',stable,'   ');
+    livecellsnow := NextGeneration;
+    if (livecellsnow = livecells) then
+       stable := stable+1
+    else
+       stable := 1;
+    livecells := livecellsnow;
+    generation := generation + 1
+  end
+end.

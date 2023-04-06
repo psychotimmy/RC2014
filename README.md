@@ -1,7 +1,7 @@
 # RC2014
 RC2014 programs
 
-Last updated 25th March 2023
+Last updated 6th April 2023
 
 1. Advent of Code 2021-25 - an implementation of the puzzle solution that will run on Z80 BASIC Ver 4.7b (see also the Sharp MZ-700 repository: https://github.com/psychotimmy/Sharp-MZ-700).
 
@@ -10,3 +10,5 @@ Last updated 25th March 2023
 3. Primes program, written using Turbo Pascal 3.01A under CP/M 2.2
 
 4. RADEC - Right Ascension and Declination for all the planets. Converted from 'Celestial BASIC', program 11, using Turbo Pascal 3.01A under CP/M 2.2. Will also work on a Raspberry Pi with Free Pascal 3.0.4.
+
+5. Life - Conway's game of life in Turbo Pascal 3.01A under CP/M 2.2. Assumes a VTxxx compatible display.

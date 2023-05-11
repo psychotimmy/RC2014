@@ -3,17 +3,16 @@
 
 program life(output);
 const
-  COLUMNS   =    50; { Number of columns on board }
-  ROWS      =    20; { Number of rows on board }
-  MAXSTABLE =    10; { End game if cell count is same for MAXSTABLE generations }
-  RANDMAX   =     3; { For generating a random integer less than  RANDMAX }
+  COLUMNS   =    80; { Number of columns on board }
+  ROWS      =    26; { Number of rows on board }
+  RANDMAX   =     6; { For generating a random integer less than RANDMAX }
   EMPTY     = FALSE; { Empty cell is boolean value FALSE }
   ALIVE     =  TRUE; { Alive cell is boolean value TRUE }
 type
   Grid = array [1..ROWS, 1..COLUMNS] of boolean;
 var
   Board: Grid;
-  generation, stable, livecells, livecellsnow: integer;
+  generation, livecells: integer;
 
 function PopulateBoard: integer;
 { Populates the board with a random initial state }
@@ -88,20 +87,14 @@ end;
 begin
   write(#27'[2J'); { VTxxx clear screen }
   generation := 1;
-  stable := 1;
   livecells := PopulateBoard;
-  while (stable <= MAXSTABLE) do
-  begin
-    DisplayBoard;
-    writeln;
-    writeln('Generation: ',generation,' Cells: ',livecells,
-            ' Stability: ',stable,'   ');
-    livecellsnow := NextGeneration;
-    if (livecellsnow = livecells) then
-       stable := stable+1
-    else
-       stable := 1;
-    livecells := livecellsnow;
-    generation := generation + 1
-  end
+  repeat
+    begin
+      DisplayBoard;
+      writeln;
+      writeln('Generation: ',generation,' Cells: ',livecells,'    ');
+      livecells := NextGeneration;
+      generation := generation + 1
+    end
+  until KeyPressed
 end.

@@ -120,7 +120,7 @@ begin
     Uranus: planetString := 'Uranus   ';
     Neptune: planetString := 'Neptune  ';
     Pluto: planetString := 'Pluto    '
-  end;
+  end
 end;
 
 function monthString(month: integer): str3;
@@ -138,8 +138,8 @@ begin
     9: monthString := 'Sep';
     10: monthString := 'Oct';
     11: monthString := 'Nov';
-    12: monthString := 'Dec';
-  end;
+    12: monthString := 'Dec'
+  end
 end;
 
 procedure GetNumI(var WholeNumber: integer; var CharFlag: char;
@@ -251,7 +251,7 @@ begin
     temp := temp+trunc((y-1)/4)-trunc((0.75)*trunc((y-1)/100+1))
   else
     temp := temp-trunc(m*0.4+2.3)+trunc(y/4)-trunc((0.75)*trunc((y/100)+1));
-  getEpochDay := round(temp-715875.0);
+  getEpochDay := round(temp-715875.0)
 end;
 
 function getHelioLong(p: PN; e: integer): real;
@@ -272,7 +272,7 @@ begin
   tempz := hle-hl;
   if (abs(tempz) > pi) and (tempz < 0.0) then tempz := tempz+2.0*pi;
   if (abs(tempz) > pi) and (tempz > 0.0) then tempz := tempz-2.0*pi;
-  getEarthDist := sqrt(sqr(sd)+sqr(sde)-2.0*sd*sde*cos(tempz));
+  getEarthDist := sqrt(sqr(sd)+sqr(sde)-2.0*sd*sde*cos(tempz))
 end;
 
 function getRA(hl: real; hle: real; sd: real; sde: real; edst: real): real;
@@ -292,7 +292,7 @@ begin
   while (ra < -dayhours) do ra := ra+dayhours;
   while (ra < 0.0) do ra := ra+dayhours;
 
-  getRA := ra;
+  getRA := ra
 end;
 
 function getDec(hl: real; hle: real; sd: real; sde: real;
@@ -309,7 +309,7 @@ begin
   if (tempz < 0) then tempv := sin(hle+pi-tempx)*23.44194+deg(eclip);
   if (tempz > 0) then tempv := sin(hle+pi+tempx)*23.44194+deg(eclip);
 
-  getDec := tempv;
+  getDec := tempv
 end;
 
 begin
@@ -378,12 +378,12 @@ begin
         write(declination:7:2);
         writeln('');
         writeln('')
-      end;
+      end
     end;
 
   writeln('Another date (Y/N)?');
   readln(getData);
   writeln('')
 
-  end;
+  end
 end.

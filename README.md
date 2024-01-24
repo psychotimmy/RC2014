@@ -9,6 +9,8 @@ Last updated 6th April 2023
 
 3. Primes program, written using Turbo Pascal 3.01A under CP/M 2.2
 
-4. RADEC - Right Ascension and Declination for all the planets. Converted from 'Celestial BASIC', program 11, using Turbo Pascal 3.01A under CP/M 2.2. Will also work on a Raspberry Pi with Free Pascal 3.0.4.
+4. Primes program, written using FTL (HiSoft) Modula-2 1.30 under CP/M 2.2
 
-5. Life - Conway's game of life in Turbo Pascal 3.01A under CP/M 2.2. Assumes a VTxxx compatible display.
+5. RADEC - Right Ascension and Declination for all the planets. Converted from 'Celestial BASIC', program 11, using Turbo Pascal 3.01A under CP/M 2.2. Will also work on a Raspberry Pi with Free Pascal 3.0.4.
+
+6. Life - Conway's game of life in Turbo Pascal 3.01A under CP/M 2.2. Assumes a VTxxx compatible display.

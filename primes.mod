@@ -15,7 +15,7 @@ FROM Terminal IMPORT WriteString,WriteLn;
 FROM Maths IMPORT SQRT;
 
 CONST PMAX = 256;
-TYPE PRIMEA = ARRAY [0..PMAX-1] OF CARDINAL;
+TYPE PRIMEA = ARRAY [1..PMAX] OF CARDINAL;
 VAR primearray: PRIMEA;
 VAR sc, limit, next, primecount: CARDINAL;
 
@@ -31,11 +31,11 @@ BEGIN
   (* No need to check past the square root of number *)
   (* being tested to see if it is prime *)
   sr := TRUNC(SQRT(FLOAT(number)));
-  count := 0;
+  count := 1;
   candidatePrime := TRUE;
   (* If the number has no prime divisor already found *)
   (* it may be the next prime to add to our list      *)
-  WHILE (count < primecount) & candidatePrime DO
+  WHILE (count <= primecount) & candidatePrime DO
     IF primearray[count] <= sr THEN
       (* if test below is true, then prime divisor found *)
       (* and so number being tested is not prime         *)
@@ -71,8 +71,8 @@ BEGIN
             (* Add it to our list if there is space *)
             (* so that the sieve function can use   *)
             (* it in future prime divisor tests     *)
-            primearray[primecount] := next;
             INC(primecount);
+            primearray[primecount] := next;
           END;
           (* Write the new prime number just found *)
           WriteCard(next,7);

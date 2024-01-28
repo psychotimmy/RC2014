@@ -50,10 +50,10 @@ END sieve;
 
 (* Main loop - handles input and output *)
 BEGIN
-  WriteString('Enter prime number limit - greater than 7, less than 65,536 > ');
+  WriteString('Enter prime number limit - greater than 7, less than 65,501 > ');
   ReadCard(limit);
   WriteLn;
-  IF limit > 7 THEN
+  IF (limit > 7) & (limit < 65501) THEN
     primecount := 0;
     next := 11;
     (* Write out the first four primes *)
@@ -89,7 +89,7 @@ BEGIN
       next := next+2
     END
   ELSE
-    WriteString('Limit must be greater than 7!');
+    WriteString('Limit must be greater than 7 and less than 65,501!');
     WriteLn
   END;
   WriteLn

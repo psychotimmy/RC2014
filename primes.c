@@ -22,11 +22,11 @@ main()
   int sc, limit, next;
 
   sc = 1;
-  printf("Enter prime number limit - greater than 7, less than 32,768 > ");
+  printf("Enter prime number limit - greater than 7, less than 32,750 > ");
   scanf("%d",&limit);
   printf("\n");
  
-  if ((limit > 7) && (limit < 32768)) {
+  if ((limit > 7) && (limit < 32750)) {
     primec = -1;
     next = 11;
     printf("%7d%7d%7d%7d",2,3,5,7);
@@ -44,7 +44,7 @@ main()
     }
   }
   else
-    printf("Limit must be greater than 7 and less than 32,768!");
+    printf("Limit must be greater than 7 and less than 32,750!");
   if ((sc % 10) != 1)
     printf("\n"); /* New line if not already issued after printing 10 primes */
   printf("\n%d primes found\n",sc-1);

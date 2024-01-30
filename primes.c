@@ -34,7 +34,7 @@ main()
     while (next <= limit) {
       if (((next % 3) != 0) && ((next % 5) != 0) && ((next % 7) != 0))
         if (sieve(next)) {
-          if (primec < PMAX)
+          if (primec < PMAX-1)
             primea[++primec] = next;
           printf("%7d",next);
           if ((sc++ % 10) == 0)

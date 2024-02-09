@@ -8,6 +8,9 @@
       REM * Compile with: CB80 PRIMES80(.BAS)                      *
       REM * Link with: LK80 PRIMES80(.REL) to produce PRIMES80.COM *
       REM *                                                        *
+      REM * Currently gives incorrect results on an RC2040. Using  *
+      REM * the same compiler on an RC2014 with this code is fine. *
+      REM *                                                        *
       REM **********************************************************
 
       INTEGER P(1), L, PC, X, W, J, SC, TEST

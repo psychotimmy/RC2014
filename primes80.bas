@@ -8,29 +8,22 @@
       REM * Compile with: CB80 PRIMES80(.BAS)                      *
       REM * Link with: LK80 PRIMES80(.REL) to produce PRIMES80.COM *
       REM *                                                        *
-      REM * Currently gives incorrect results on an RC2040. Using  *
-      REM * the same compiler on an RC2014 with this code is fine. *
-      REM *                                                        *
       REM **********************************************************
 
-      INTEGER P(1), L, PC, X, W, J, SC, TEST
+      INTEGER L, PC, X, SC, TEST, NUM
       DIM P(255)
-
+    
       DEF SIEVE(NUM)
-      INTEGER CT, CPR
-      REAL SR
+      INTEGER CT, SR
       SR = SQR(NUM)+0.5
       CT = 1
-      CPR = 1
-      WHILE (CT <= PC) AND (CPR = 1)
-        IF P(CT) <= SR THEN \
-          IF (MOD(NUM,P(CT)) = 0) THEN CPR = 0
+      WHILE (CT <= PC) AND (P(CT) <= SR)
+        IF MOD(NUM,P(CT)) = 0 THEN SIEVE = 0: RETURN
         CT = CT+1
       WEND
-      SIEVE = CPR
+      SIEVE = 1
       FEND
-    
-      SC = 0
+
       PRINT "Enter prime number limit - greater than 7, less than 32,750 ";
       INPUT L
       PRINT
@@ -46,7 +39,7 @@ MAIN: IF ((MOD(X,3) = 0) OR (MOD(X,5) = 0) OR (MOD(X,7) = 0)) THEN GOTO INCX
       TEST = SIEVE(X)
       IF TEST = 1 THEN \
         PRINT USING "#######";X;: SC = SC+1: IF MOD(SC,10)=0 THEN PRINT
-      IF (TEST = 1) AND (PC < 255) THEN \
+      IF (TEST = 1) AND (PC < 254) THEN \
         PC = PC+1: \
         P(PC) = X
           

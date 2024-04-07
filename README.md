@@ -8,7 +8,7 @@
 
 2. mastermind.bas: Simple Mastermind game. Guess the correct order and colour of 4 pegs.
 
-### Turbo Pascal 3.01A (CPM 2.2)
+### Turbo Pascal 3.01A (CP/M 2.2)
 
 1. primes.pas: Prime number generator.
 

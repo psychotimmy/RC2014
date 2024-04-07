@@ -8,6 +8,10 @@
 
 2. mastermind.bas: Simple Mastermind game. Guess the correct order and colour of 4 pegs.
 
+### Microsoft BASIC 5.21 (CP/M 2.2)
+
+1. valley2.bas: A version of Computing Today's "The Valley" that will work on an 80x24 VT100 emulator, such as minicom. See the instructions in the code on how to run and optionally compile with BASCOM.
+
 ### Turbo Pascal 3.01A (CP/M 2.2)
 
 1. primes.pas: Prime number generator.

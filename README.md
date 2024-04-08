@@ -2,6 +2,8 @@
 
 ## Last updated 7th April 2024
 
+Note: Some of these source files may have UNIX-style line endings, so may fail to run correctly if transferred directly via XMODEM etc. Simplest way to avoid this issue is to use cut and paste from the raw GitHub file into a CP/M ED session running in a terminal emulator, such as minicom.
+
 ### BASIC 4.7b
 
 1. sunrise-sunset-minimal.bas: Sunset / sunrise calculator for a given latitude / longitude on a particular date. Minimal changes to the version published in Sky & Telescope https://skyandtelescope.org/astronomy-resources/basic-programs-from-sky-telescope/ so that it will run (' statements becomes REM, PRINT USING becomes PRINT).

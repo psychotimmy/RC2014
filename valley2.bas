@@ -53,8 +53,8 @@
 99 REM ** Define major array variables
 100 DIM D(3),G(75),P(8),N(8),S(4),T(2),MA(18),WI(1,4),M$(18),MS(18),N1(18),RT$(28)
 108 REM ** TM affects timings for delay (36000) and combat get (1700)
-109 REM ** A value of 5 is good for the BASIC interpreter, 18 for the compiler. 
-110 TM=5
+109 REM ** A value of 5-10 is good for the BASIC interpreter, 18-30 for the compiler. 
+110 TM=7
 120 DL$="":TS=0:TN=0:CF=0:UE=0:UB=0
 130 REM ** Set up status area positioning and blanking strings
 140 D$=CH$+RR$(1)+DD$(20)  : REM Cursor Home + 1 right + 20 down
@@ -592,8 +592,8 @@
 45011 IF RT>28 THEN RT=28
 45020 IF RT<0 THEN RT=0
 45030 PRINT D$;"Your rating be";RT;": ";RT$(RT)
-45040 IF T(2)=1 THEN PRINT "You have the helm of Evanna"
-45050 IF T(0)=1 THEN PRINT "Amulet stones... ";T(1)
+45040 IF T(2)=1 THEN PRINT " You have the helm of Evanna"
+45050 IF T(0)=1 THEN PRINT " Amulet stones... ";T(1)
 45060 DF=250:DL$="W":GOSUB 36000
 45070 IF GC$="E" THEN C=C-10:GC$="":GOTO 2010
 45080 RETURN

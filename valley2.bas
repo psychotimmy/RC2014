@@ -1,11 +1,11 @@
-10 REM ** The Valley for MBASIC 5.21 under CP/M, VT100 terminal
+10 REM ** The Valley for MBASIC 5.21 under CP/M, VT100 terminal, RC2014 or RC2040
 11 REM ** Based on the game published April 1982 in Computing Today 
 12 REM ** All rights of the original authors gratefully acknowledged
 13 REM ** 
 14 REM ** Re-implemented in April 2024 by Tim Holyoake
 15 REM **
-16 REM ** Run game using MBASIC VALLEY2.BAS /M:55000 /F:1 (with TM=5 on line 110)
-17 REM ** or compile (with TM=18 on line 110, BASIC runtime BRUN required)
+16 REM ** Run game using MBASIC VALLEY2.BAS /M:55000 /F:1 (with TM=5 to 10 on line 110)
+17 REM ** or compile (with TM=18 to 30 on line 110, BASIC runtime BRUN required)
 18 REM ** BASCOM VALLEY2,VALLEY2=VALLEY2, then L80 VALLEY2,VALLEY2 /N/E
 19 REM ** Location 62001 (TL) and onwards are used for storing the virtual valley screen
 20 REM **
@@ -54,7 +54,7 @@
 100 DIM D(3),G(75),P(8),N(8),S(4),T(2),MA(18),WI(1,4),M$(18),MS(18),N1(18),RT$(28)
 108 REM ** TM affects timings for delay (36000) and combat get (1700)
 109 REM ** A value of 5-10 is good for the BASIC interpreter, 18-30 for the compiler. 
-110 TM=7
+110 TM=8
 120 DL$="":TS=0:TN=0:CF=0:UE=0:UB=0
 130 REM ** Set up status area positioning and blanking strings
 140 D$=CH$+RR$(1)+DD$(20)  : REM Cursor Home + 1 right + 20 down

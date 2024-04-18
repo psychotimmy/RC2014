@@ -4,7 +4,7 @@
 13 REM ** 
 14 REM ** Re-implemented in April 2024 by Tim Holyoake
 15 REM **
-16 REM ** Run game using MBASIC VALLEYRC.BAS /M:55000 /F:1 (with TM=5 to 10 on line 110)
+16 REM ** Run game using MBASIC VALLEY2.BAS /M:55000 /F:1 (with TM=5 to 10 on line 110)
 17 REM ** Location 62001 (TL) & onwards are used for storing the virtual valley screen
 18 REM **
 21 REM ** Useful screen handling parameters & codes

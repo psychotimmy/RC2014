@@ -12,8 +12,10 @@ Note: Some of these source files may have UNIX-style line endings, so may fail t
 
 ### Microsoft BASIC 5.21 (CP/M 2.2)
 
-1. valley2.bas: A version of Computing Today's "The Valley" that will work on an 80x24 VT100 emulator, such as minicom. See the instructions in the code on how to run and optionally compile with BASCOM.
-
+1. valley2.bas: A version of Computing Today's "The Valley" that will work on a VT100 emulator, such as minicom, or with PicoTerm.
+   Run with MBASIC VALLEY2.BAS /M:55000 /F:1
+   Three terminal types supported - vanilla VT100 (80x24), PicoTerm PetSCII (80x30) and PicoTerm CP437 (80x30)
+   
 ### Turbo Pascal 3.01A (CP/M 2.2)
 
 1. primes.pas: Prime number generator.

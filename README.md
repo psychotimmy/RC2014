@@ -47,6 +47,7 @@ of the image onto a 128Mb compact flash card.
 
 Includes drives A - P with the following contents:
 
+```
 A: DOWNLOAD.COM
 
 C: LOAD     COM : PIP      COM : STAT     COM : SUBMIT   COM                    
@@ -89,6 +90,7 @@ O: CB80     COM : CB80     IRL : CB80     OV1 : CB80     OV2
 #### Borland Turbo Pascal v3.01A
 
 P: TINST    COM : TINST    DTA : TINST    MSG : TURBO    COM                    
-   TURBO    MSG : TURBO    OVR  
+   TURBO    MSG : TURBO    OVR
+```
 
 Drives B,E,H,I,J,K,L,M and N are empty.

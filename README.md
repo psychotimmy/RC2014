@@ -40,7 +40,7 @@ Note: Some of these source files may have UNIX-style line endings, so may fail t
 
 ### CP/M 2.2 128Mb Compact Flash image for RC2014 with SIO/2 serial board
 
-Pre-formatted CP/M 2.2 image for the RC2014. On Linux / UNIX use:
+Compressed, pre-formatted CP/M 2.2 image for the RC2014. Uncompress the file. On Linux / UNIX use:
 
 dd if=rc2014sio2cpm.img of=/dev/\<your cf device name\> 
 

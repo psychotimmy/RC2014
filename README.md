@@ -43,7 +43,8 @@ Note: Some of these source files may have UNIX-style line endings, so may fail t
 Pre-formatted CP/M 2.2 image for the RC2014. On Linux / UNIX use:
 
 dd if=rc2014sio2cpm.img of=/dev/\<your cf device name\> 
-to create a new copy of the image onto a 128Mb compact flash card.
+
+to create a new copy of the image onto a 128Mb compact flash card. Note that you will need write access to your compact flash device.
 
 Includes drives A - P with the following contents:
 

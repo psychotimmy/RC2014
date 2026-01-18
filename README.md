@@ -1,6 +1,6 @@
-# Programs for the RC2014
+# Programs and CP/M 2.2 compact flash image for the RC2014
 
-## Last updated 7th April 2024
+## Last updated 18th January 2026
 
 Note: Some of these source files may have UNIX-style line endings, so may fail to run correctly if transferred directly via XMODEM etc. Simplest way to avoid this issue is to use cut and paste from the raw GitHub file into a CP/M ED session running in a terminal emulator, such as minicom.
 
@@ -32,12 +32,63 @@ Note: Some of these source files may have UNIX-style line endings, so may fail t
 
 ### Aztec C 1.06D (CP/M 2.2)
 
-1. primes.c: Primes number generator.
+1. primes.c: Prime number generator.
 
 ### Digital Research CBASIC80 2.0 (CP/M 2.2)
 
 1. primes80.bas: Prime number generator.
 
+### CP/M 2.2 128Mb Compact Flash image for RC2014 with SIO/2 serial board
 
+Pre-formatted CP/M 2.2 image for the RC2014. On Linux / UNIX use:
 
+dd if=rc2014sio2cpm.img of=/dev/<your cf device name> to create a new copy
+of the image onto a 128Mb compact flash card.
 
+Includes drives A - P with the following contents:
+
+A: DOWNLOAD.COM
+
+C: LOAD     COM : PIP      COM : STAT     COM : SUBMIT   COM                    
+   DDT      COM : DISPLAY  COM : DUMP     COM : ED       COM                    
+   ASM      COM : COMPARE  COM : CRUNCH   COM : DDTZ     COM                    
+   EX       COM : LS       COM : LSWEEP   COM : GENHEX   COM                    
+   MBASIC   COM : NULU     COM : PMARC    COM : PMEXT    COM                    
+   RMXSUB1  COM : SUPERSUB COM : TDLBASIC COM : UNARC    COM                    
+   UNCR     COM : UNZIP    COM : XSUB1    COM : ZAP      COM                    
+   ZDE      COM : ZDENST   COM : ZMRX     COM : ZMTX     COM                    
+   CRUNCH28 CFG
+
+#### Aztec C v1.06D
+
+D: ARCV     COM : AS       COM : CC       COM : CC       MSG                    
+   C        LIB : CNM      COM : CRC      COM : CZ       COM                    
+   HEX80    COM : LIBC     REL : LIBUTIL  COM : LN       COM                    
+   MATH     REL : M        LIB : ROM      LIB : SIDSYM   COM                    
+   SQZ      COM : T        LIB
+
+#### Microsoft FORTRAN-80 v3.44
+
+F: CPMIO    MAC : DSKDRV   MAC : DTBF     MAC : FCHAIN   MAC                    
+   INIT     MAC : IOINIT   MAC : LPTDRV   MAC : LUNTB    MAC                    
+   TTYDRV   MAC : CRCKLIST CRC : CREF80   COM : F80      COM                    
+   L80      COM : LIB      COM : M80      COM : FORLIB   REL
+
+#### Sample programs
+
+G: VALLEY2.BAS  (Microsoft BASIC 5.21 implementation of 'The Valley'
+   LIFE.PAS     (Conway's Life in Turbo Pascal 3.01A)
+   PRIMES80.BAS (Prime number generator, Digital Research BASIC 2.0)
+
+#### Digital Research BASIC Compiler v2.0
+
+O: CB80     COM : CB80     IRL : CB80     OV1 : CB80     OV2                    
+   CB80     OV3 : CBAS2    COM : CRUN2    COM : LIB      COM                    
+   LINK     COM : LK80     COM  
+
+#### Borland Turbo Pascal v3.01A
+
+P: TINST    COM : TINST    DTA : TINST    MSG : TURBO    COM                    
+   TURBO    MSG : TURBO    OVR  
+
+Drives B,E,H,I,J,K,L,M and N are empty.
